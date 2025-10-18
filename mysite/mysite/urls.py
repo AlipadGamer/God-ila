@@ -16,7 +16,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from myapp.views import main
+from myapp.views import pozdrav
+from myapp.views import article_main
+from myapp.views import article_uniq
+from myapp.views import article
+from myapp.views import mypage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',main,name='main'),
+    path('ahoj/',pozdrav,name='pozdrav'),
+    path('article/',article_main),
+    path('article/5',article_uniq),
+    path('article/<int:article_id>/',article),
+    path('article/<int:article_id>/<slug:name>',article),
+    path('cau/',mypage,name='mypage'),
+    path('',mypage,)
+
+   
+
 ]
+
